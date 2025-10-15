@@ -62,8 +62,8 @@
         "portable"
       ],
       "icon": "build/icon.ico",
-      "verifyUpdateCodeSignature": false,
-      "signAndEditExecutable": false,
+      "verifyUpdateCodeSignature": true,
+      "signAndEditExecutable": true,
       "requestedExecutionLevel": "asInvoker"
     },
     "nsis": {
