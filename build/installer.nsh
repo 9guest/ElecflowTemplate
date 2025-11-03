@@ -10,6 +10,8 @@
 !macroend
 
 !macro customUnInstall
+  DetailPrint "Unregister elecflow URI Handler"
+  DeleteRegKey HKCR "elecflow"
   MessageBox MB_OK "ElecflowTemplate has been uninstalled."
 !macroend
 
