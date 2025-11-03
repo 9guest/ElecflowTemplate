@@ -6,10 +6,11 @@
   "homepage": "https://github.com/9guest/ElecflowTemplate",
   "repository": "https://github.com/9guest/ElecflowTemplate",
   "license": "MIT",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder",
+    "build": "electron-builder --publish=never",
     "pack": "electron-builder --dir",
     "postinstall": "electron-builder install-app-deps"
   },
@@ -20,11 +21,6 @@
     "Starter",
     "Template"
   ],
-  "devDependencies": {
-    "electron": "^38.2.0",
-    "electron-builder": "^26.0.12",
-    "electron-updater": "6.6.8"
-  },
   "build": {
     "appId": "com.ycs.elecflowtemplate",
     "productName": "ElecflowTemplate",
@@ -34,19 +30,21 @@
       "output": "dist",
       "buildResources": "build"
     },
+    "protocols": {
+      "name": "elecflow",
+      "schemes": [
+        "elecflow"
+      ]
+    },
     "files": [
       "main.js",
       "src/**/*",
       "package.json",
       "node_modules/**/*"
     ],
-    "extraResources": [
-
-    ],
+    "extraResources": [],
     "asar": true,
-    "asarUnpack": [
-
-    ],
+    "asarUnpack": [],
     "mac": {
       "target": [
         "dmg",
@@ -68,12 +66,12 @@
     },
     "nsis": {
       "oneClick": false,
-      "perMachine": false,
+      "perMachine": true,
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "smartAdmin",
+      "shortcutName": "elecflow",
       "deleteAppDataOnUninstall": true,
       "installerIcon": "build/installerIcon.ico",
       "uninstallerIcon": "build/uninstallerIcon.ico",
@@ -100,10 +98,17 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "ninguest",
-        "repo": "smartadmin",
-        "releaseType": "draft"
+        "owner": "9guest",
+        "repo": "ElecflowTemplate",
+        "releaseType": "release"
       }
     ]
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "26.1.0"
+  },
+  "dependencies": {
+    "electron-updater": "6.7.0"
   }
 }
